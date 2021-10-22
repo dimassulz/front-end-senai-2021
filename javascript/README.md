@@ -1,1 +1,1 @@
-# Essa pasta contem arquivos da aula JS
+# Essa pasta contem arquivos da aula JS - DEV
