@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ex 3</title>
+    <script>
+
+        var totalAlmoco = Number(prompt('Digite o valor total do almoço: '))
+        var pctGarcom = totalAlmoco * 0.13 //Calcular os 13% do garçom;
+        var totalPagar = totalAlmoco + pctGarcom //Total a pagar;
+        
+        alert("Total do garçom: R$" + pctGarcom.toFixed(2)) //Mostrar o total do garçom;
+        alert("Total a pagar: R$" + totalPagar.toFixed(2)) //Mostrar o total a pagar;
+    
+        alert(`
+        ## RESUMO ##\n
+        Total do conta: R$${totalAlmoco.toFixed(2)}
+        Total do garçom: R$${pctGarcom.toFixed(2)}
+        Total a pagar: R$${totalPagar.toFixed(2)}
+        `)
+    </script>
+</head>
+<body>
+    <h1>Exercício 3</h1>
+    <h3> Criar um software em JS, que receba o valor total de um almoço, calcule e informe o valor dos 13% do garçom e o valor da conta a ser pago.</h3>
+        <br>->Entrada: Digite o valor total do almoço;
+        <br>->Processamento 1: Calcular os 13% do garçom;
+        <br>->Processamento 2: Total a pagar;
+        <br>->Saída 1: Mostrar o total do garçom;
+        <br>->Saída 2: Mostrar o total a pagar;
+        <br>->Nome do arquivo: ex_3.html
+</body>
+</html>
