@@ -5,40 +5,24 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document Object Model - JS</title>
-    <script>
-        function mostrarTexto () {
-            //Buscando o value do elemento com o id="teste"
-            var textoDaTela = document.getElementById('teste').value
-            //alert(textoDaTela)
-
-            //objeto => document
-            //método => getElementById
-            //propriedade => textContent
-            document.getElementById('texto').textContent = textoDaTela
-        }
-
-        function mostrarDatas(){
-            var data1 = document.getElementsByClassName('data')[0].value
-            var data2 = document.getElementsByClassName('data')[1].value
-            alert(`${data1} e ${data2}`)
-        }
-    </script>
+    <script src="dom.js"></script>
 </head>
+
 <body>
     <h2>Trabalhando com o DOM - getElementById</h2>
     <label for="teste">Nome: </label>
     <input type="text" name="teste" id="teste">
     <button onclick="mostrarTexto()">Mostrar</button>
-    <h3 id="texto">
-        Teste do texto do input
-    </h3>
+    <h3 id="texto"></h3>
+    
     <hr>
 
     <h2>Trabalhando com o DOM - getElementsByClassName</h2>
     Data inicio<input type="date" name="data_inicio" class="data"><br>
     Data fim <input type="date" name="data_fim" class="data"><br>
     <button onclick="mostrarDatas()">Mostrar Datas</button>
-    <hr>
+    
+    <p id="showData"></p>
     
 </body>
 </html>
