@@ -34,7 +34,6 @@ if(idade < 16 && comprovante === false){
     texto = "Pode Votar";
 }
 
-
 // OPERADOR TERNARIO
 texto = (idade < 16 && comprovante === false) ? "Não pode votar!" : "Pode Votar"
 
