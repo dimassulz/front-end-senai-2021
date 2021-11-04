@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Revenda</title>
+  <script src="revenda.js" async></script>
+</head>
+
+<body>
+  <h1>VENDA DE VEICULOS - SEU JAO</h1>
+  <p> Veículo:
+    <input type="text" id="dadoVeiculo"></p>
+  <p> Quantidade parcelas:
+        <select name="qtdParcelas" id="qtdParcelas">
+            <option value="6">6</option>
+            <option value="12">12</option>
+            <option value="18">18</option>
+            <option value="24">24</option>
+            <option value="30">30</option>
+            <option value="36">36</option>
+            <option value="48">48</option>
+            <option value="60">60</option>
+        </select>
+  <p> Preço R$:
+    <input type="text" id="dadoPreco"></p>
+  <p> <input type="button" value="Simular" id="btnSimular"></p>
+
+  <div id="mostrarSimulacao"></div>
+
+</body>
+
+</html>
