@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Peso Ideal</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="peso_ideal.js" defer></script>
+</head>
+<body>
+    <h1>Calculo do Peso Ideal</h1>
+    <div class="mb-3">
+      <label for="" class="form-label">Nome:</label>
+      <input type="text"
+          class="form-control form-control-lg" name="nome" id="nome"  placeholder="Digite o nome">
+    </div>
+    <hr>
+    <div class="form-check">
+        <label class="form-check-label">
+        <input type="radio" class="form-check-input" name="sexo" id="sexo" value="M" checked>
+        Masculino<br>
+        <input type="radio" class="form-check-input" name="sexo" id="sexo" value="F" checked>
+        Feminino
+      </label>
+    </div>
+    <hr>
+    <div class="mb-3">
+        <label for="" class="form-label">Altura:</label>
+        <input type="number"
+            class="form-control form-control-lg" name="altura" id="altura" placeholder="Digite a altura ex. 1.68">
+      </div>    
+      <button type="button" class="btn btn-primary" id="btnCalcular">Calcular</button>
+      <button type="reset" class="btn btn-info" >Limpar</button>
+      <hr>
+      <!--
+        O PROGRAMA DEVE EXIBIR O PESO IDEAL COM DUAS CASAS DECIMAIS
+        SABENDO QUE:
+        PESO IDEAL HOMEM = 22 * ALTURA²
+        PESO IDEAL MULHER = 21 * ALTURA²
+      -->
+      <div class="card" style="width: 18rem;">
+        <img src="https://pt.calcuworld.com/wp-content/uploads/sites/6/2019/12/peso-ideal-na-gravidez.png" class="card-img-top" alt="Peso Ideal">
+        <div class="card-body">
+          <h5 class="card-title">O seu peso ideal é</h5>
+          <p class="card-text" id="pesoIdeal">----</p>
+        </div>
+      </div>
+    
+</body>
+</html>
