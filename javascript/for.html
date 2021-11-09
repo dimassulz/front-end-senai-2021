@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <title>For</title>
+    
+</head>
+<body>
+    <h1>REPETICAO - FOR</h1>
+    <div id="exibe">
+
+    </div>
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">Contador</th>
+                <th scope="col">Campo teste</th>
+            </tr>
+        </thead>
+        <tbody id="linhas">
+            
+        </tbody>
+    </table>
+
+    <script>
+        //document.querySelector("#exibe").innerHTML;
+        //exibe.innerHTML;
+
+        var limitadorLinhas = Number(prompt("Digite a quantidade de linhas"))
+
+        //REPETICAO - LOOP
+        //i = 100 -> INICIALIZACAO
+        //i < 9 -> CONDICAO
+        //i++ -> EXPRESSAO FINAL - GERALMENTE UM INCREMENTO OU DECREMENTO
+        for (var contador = 100; contador >= 1; contador--) {
+            console.log(contador) //DECREMENTO DE UM EM UM
+        }
+
+        var texto = "";
+        var trTable = "";
+        //contador = 1
+        //condicao (contador <= 10)
+        //contador +1
+        for (var contador = 1; contador <= limitadorLinhas; contador++) {
+            texto += `Exbindo o dado do contador ${contador} <br>` //INCREMENTO DE UM EM UM
+            trTable += `<tr>
+                            <td>${contador}</td>
+                            <td>Teste Coluna ${contador}</td>
+                        </tr>`
+        }
+        exibe.innerHTML = texto;
+        linhas.innerHTML = trTable;
+    </script>
+    
+</body>
+</html>
