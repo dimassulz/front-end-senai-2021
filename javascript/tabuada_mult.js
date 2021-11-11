@@ -20,6 +20,28 @@ UTILIZANDO UMA ESTRUTURA DE REPETICAO WHILE, DO WHILE, FOR
 
 */
 
-var n1 = numero.value
-
-
+function mostrarTabuadaMult() {
+    // converte conteúdo do campo numero
+    var n1 = Number(numero.value);
+  
+    // valida o número (VALIDACAO)
+    if (n1 == 0 || isNaN(n1)) {
+      alert("Informe um número válido...");
+      n1.focus();
+      return; // parar a execucao do codigo
+    }
+  
+    // cria uma variável do tipo String, que irá concatenar a resposta
+    var resposta = "";
+  
+    // cria um laço de repetição
+    for (var i = 1; i <= 10; i++) {
+      // a variável resposta vai acumulando os novos conteúdos
+      resposta += `${n1} x ${i} = ${n1 * i} <br>`;
+    }
+  
+    // o conteúdo da tag div é alterado para exibir a tabuada do num
+    mostraTabuada.innerHTML = resposta;
+  }
+  // cria referência ao botão e após associa function ao evento click
+  btnCalcular.addEventListener("click", mostrarTabuadaMult);
