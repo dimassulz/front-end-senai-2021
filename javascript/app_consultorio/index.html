@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <title>Consutório Médico</title>
+    <script src="js/app.js" defer></script>
+</head>
+<body>
+    <main class="container">
+        <div class="bg-light p-5 rounded">
+          <h1>Consultório Médico</h1>
+          <p class="lead">
+            <input type="texto" class="form-control" id="paciente" name="paciente" placeholder="Entre com o nome do Paciente">
+            <br>
+            <input type="button" class="btn btn-success" value="Adicionar" id="btnAdd"> 
+            <input type="button" class="btn btn-danger" value="Urgência" id="btnUrg">
+            <input type="button" class="btn btn-primary" value="Atender" id="btnAtender">
+          </p>
+          <h2>Em atendimento: <span id="nomePessoaAtendimento" class="text-blue">NOME</span></h2>
+          <h3>Lista de Espera</h3>
+          <ul class="list-group" id="listaEspera">
+            <li class="list-group-item">An item</li>
+            <li class="list-group-item">A second item</li>
+            <li class="list-group-item">A third item</li>
+            <li class="list-group-item">A fourth item</li>
+            <li class="list-group-item">And a fifth one</li>
+          </ul>
+        </div>
+      </main>
+</body>
+</html>
