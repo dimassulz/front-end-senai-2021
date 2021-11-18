@@ -1,8 +1,8 @@
-const adicionarLista = function() {
+function adicionarLista() {
     console.log("add lista")
 }
 
-const adicionarUrgencia = function() {
+function adicionarUrgencia() {
     console.log("add urgencia")
 }
 //arrow function
