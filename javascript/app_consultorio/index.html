@@ -16,17 +16,16 @@
             <input type="texto" class="form-control" id="paciente" name="paciente" placeholder="Entre com o nome do Paciente">
             <br>
             <input type="button" class="btn btn-success" value="Adicionar" id="btnAdd"> 
-            <input type="button" class="btn btn-danger" value="Urgência" id="btnUrg">
+            <input type="button" class="btn btn-danger" value="Adicionar Urgência" id="btnUrg">
             <input type="button" class="btn btn-primary" value="Atender" id="btnAtender">
           </p>
-          <h2>Em atendimento: <span id="nomePessoaAtendimento" class="text-blue">NOME</span></h2>
+          
+          <div class="alert alert-success" role="alert" id="alertAtendimento">
+            <h2>Em atendimento: <span id="nomePessoaAtendimento"></span></h2>
+          </div>
           <h3>Lista de Espera</h3>
           <ul class="list-group" id="listaEspera">
-            <li class="list-group-item">An item</li>
-            <li class="list-group-item">A second item</li>
-            <li class="list-group-item">A third item</li>
-            <li class="list-group-item">A fourth item</li>
-            <li class="list-group-item">And a fifth one</li>
+            <li class="list-group-item">Aguardando pacientes...</li>
           </ul>
         </div>
       </main>
