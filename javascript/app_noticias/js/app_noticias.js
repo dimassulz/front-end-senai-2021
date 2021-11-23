@@ -10,6 +10,17 @@ document.querySelector("#tituloNoticias").style = "display: none"
 //2.3 - Faça uma limpeza no campo de noticias e aponte o foco para ele
 // * Não exibir as noticias ainda, deixe isso para a função mostrarNoticias
 const cadastrarNoticia = function(){
+
+    let noticia = document.querySelector("#noticia").value
+    if (noticia == "") {
+        alert("Digite uma noticia!");
+        return
+    }
+    ultimasNoticias.push(noticia)   
+    qtdNoticias.innerHTML = ultimasNoticias.length
+    document.querySelector("#noticia").value = ""
+    document.querySelector("#noticia").focus()
+    document.querySelector("#tituloNoticias").style = "display: block"
 }
 
 //3 - Mostrar as noticias cadastradas
@@ -19,12 +30,38 @@ const cadastrarNoticia = function(){
 // Devastação da Amazônia não para e atinge 13 mil km² em 1 ano </div></article>
 //3.3 - Faça uma limpeza no campo de noticias
 const mostrarNoticias = function(){
+    let mostrar = document.querySelector("#mostrarNoticias")
+    let htmlTela = ""
+
+    if (ultimasNoticias.length === 0) {
+        alert("Você não possui noticias cadastradas");
+        return
+    }
+
+    ultimasNoticias.forEach((n, i) => htmlTela += `<article class="message is-info is-medium">
+     <div class="message-header">
+         <h1> Notícia ${i+1} </h1> </div> 
+         <div class="message-body">
+            ${n}
+         </div>
+         </article>
+    `)
+     mostrar.innerHTML = htmlTela
+     document.querySelector("#noticia").value = ""
+     document.querySelector("#noticia").focus()
 }
 
 //4 - Limpar os dados do array todasNoticias
 //4.1 - Ocultar o tituloNoticias
 //4.2 - Limpar a div id="mostrarNoticias"
 const deletarNoticias = function(){
+    ultimasNoticias = []
+    //qtdNoticias.innerHTML = ""
+    document.querySelector("#mostrarNoticias").innerHTML = ""
+    document.querySelector("#tituloNoticias").style = "display: none"
 }
 
 //1 - ADICIONAR EVENTOS DE CLICK PARA CADA UM DOS TRES BOTOES DA TELA (btnCadastrarNoticia, btnMostrar, btnDeletar)
+btnCadastrarNoticia.addEventListener("click", cadastrarNoticia)
+btnMostrar.addEventListener("click", mostrarNoticias)
+btnDeletar.addEventListener("click", deletarNoticias)
