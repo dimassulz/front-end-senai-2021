@@ -103,6 +103,9 @@ const deletarNoticias = function(){
  * @param {int} idNoticia 
  */
 const editar = function(idNoticia){
+    //ao clicar em editar vai posicionar a tela na posicao 0 com animacao
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+    //trazendo o conteudo da noticia a ser editada para o textarea
     document.querySelector("#noticia").value = todasNoticias[idNoticia]
     //mostrando o botao de editar (SALVAR EDIÇÃO)
     document.querySelector("#btnEditarNoticia").style = "display: block"
@@ -110,7 +113,7 @@ const editar = function(idNoticia){
     document.querySelector("#btnCadastrarNoticia").style = "display: none"
     //adicionando o onclick ao botao
     document.querySelector("#btnEditarNoticia").onclick = () => {
-        //quando clicar chamar a funcao cadastrarNoticia com o id da noticia
+        //quando clicar chamar a funcao cadastrarNoticia com o id da noticia (ATUALIZAR)
         cadastrarNoticia(idNoticia)
     };
 }
