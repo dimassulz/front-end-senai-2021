@@ -1,107 +1,172 @@
-//lista com todas as noticias
+/**
+ * lista(ARRAY) com todas as noticias
+ */
 let todasNoticias = []
 
-//ocultando o titulo das noticias 
-document.querySelector("#tituloNoticias").style = "display: none"
-document.querySelector("#btnEditarNoticia").style = "display: none"
-
-//2 - Adicionar ao Array todasNoticias as noticias do campo textarea da tela
-//2.1 - Fazer uma verificação se o campo noticias está preenchido corretamente alert("Digite uma noticia!")
-//2.2 - Mostre o tituloNoticias com a quantidade de noticias id="qtdNoticias"
-//2.3 - Faça uma limpeza no campo de noticias e aponte o foco para ele
-// * Não exibir as noticias ainda, deixe isso para a função mostrarNoticias
+/**
+ * Função que cadastra notícias (insere ou atualiza)
+ * @param {in} [id]
+ * @returns 
+ */
 const cadastrarNoticia = function(id){
-
+    //campo de noticia da tela
     let noticia = document.querySelector("#noticia").value
+    //verifica se a noticia esta preenchida
     if (noticia == "") {
-        alert("Digite uma noticia!");
+        alert("Digite uma noticia!")
         return
     }
+    //verifica se a variavel id (passada como parametro na funcao) está indefinida, se tiver ele vai adicionar a nova noticias
     if(id === undefined){
-        todasNoticias.push(noticia)   // <<<<-- ADCIONANDO NO ARRAY - NOVA NOTICIA
-        //ENVIAR PARA UMA API
+        todasNoticias.push(noticia) // <<<<-- ADCIONANDO NO ARRAY - NOVA NOTICIA
     }else{
-        //EDITANDO A NOTICIA
-        todasNoticias[id] = noticia
+        //caso contrário ele entra no editar para atualizar a noticias
+        todasNoticias[id] = noticia // <<<<-- ATUALIZANDO A POSICAO NO ARRAY - EDITANDO A NOTICIA
+        //mostrando o botao de cadastrar (NOVA NOTICIA)
         document.querySelector("#btnCadastrarNoticia").style = "display: block"
-        btnEditarNoticia.removeEventListener("click", () => { cadastrarNoticia(id) })
+        //ocultado o botao de editar (SALVAR EDICAO)
         document.querySelector("#btnEditarNoticia").style = "display: none"
-        
     }
-    qtdNoticias.innerHTML = todasNoticias.length
-    document.querySelector("#noticia").value = ""
-    document.querySelector("#noticia").focus()
-    document.querySelector("#tituloNoticias").style = "display: block"
+    //limpando os dados cadastrados e focando no campo
+    limparFocarCampo()
+    //listando novamente as noticias (atualizando)
     mostrarNoticias()
 }
 
-//3 - Mostrar as noticias cadastradas
-//3.1 - Fazer uma verificação se o o array todasNoticias tem algo na lista alert("Você não possui noticias cadastradas")
-//3.2 - Usar um forEach no todasNoticias para exibir as noticias uma a uma dentro da div id="mostrarNoticias" em uma tag article conforme o exemplo abaixo:
-//<article class="message is-info is-medium"><div class="message-header"><h1>Notícia 1</h1></div><div class="message-body">
-// Devastação da Amazônia não para e atinge 13 mil km² em 1 ano </div></article>
-//3.3 - Faça uma limpeza no campo de noticias
+/**
+ * Mostrar as noticias cadastradas
+ */
 const mostrarNoticias = function(){
+    //div onde irao aparecer as noticias
     let mostrar = document.querySelector("#mostrarNoticias")
+    //armazenas os <article> das noticias
     let htmlTela = ""
-
-    todasNoticias.forEach((n, i) => htmlTela += `
-    <article class="message is-info is-medium">
-        <div class="message-header">
-            <h1> Notícia ${i+1} </h1> 
-        </div> 
-        <div class="message-body">
-                ${n}
-            <div class="buttons is-pulled-right">
-                <button class="button is-primary" onclick="editar(${i})">Editar</button>
-                <button class="button is-danger" onclick="excluir(${i})">Excluir</button>
+    //itera o array e monta os articles um embaixo do outro (montando a tela) usando a variavel htmlTela
+    todasNoticias.forEach(
+        (n, i) => htmlTela += `
+        <article class="message is-info is-medium">
+            <div class="message-header">
+                <h1> Notícia ${i+1} </h1> 
+            </div> 
+            <div class="message-body">
+                    ${n}
+                <div class="buttons is-pulled-right">
+                    <button class="button is-primary" onclick="editar(${i})">
+                        <span>Editar</span>
+                        <span class="icon is-small">
+                        <i class="fas fa-edit"></i>
+                        </span>
+                    </button>
+                    <button class="button is-danger" onclick="excluir(${i})">
+                        <span>Excluir</span>
+                        <span class="icon is-small">
+                        <i class="fas fa-trash"></i>
+                        </span>
+                    </button>
+                </div>
             </div>
-        </div>
-        
-    </article>
+            
+        </article>
     `)
+     //atualizando a quantidade de noticias do span id=qtdNoticias
+     qtdNoticias.innerHTML = todasNoticias.length
+     //mostrando na tela as noticias
      mostrar.innerHTML = htmlTela
-     document.querySelector("#noticia").value = ""
-     document.querySelector("#noticia").focus()
+     //mostrando a linha com aquantidade de noticias
+     document.querySelector("#tituloNoticias").style = "display: block"
+     //mostrando o botao deletar todas
+     document.querySelector("#btnDeletar").style = "display: block"
+     //envia para a funcao limpar tela
+     limparTela() 
 }
 
-//4 - Limpar os dados do array todasNoticias
-//4.1 - Ocultar o tituloNoticias
-//4.2 - Limpar a div id="mostrarNoticias"
+/**
+ * Deleta todas as noticias da tela verificando se existem noticias
+ * @returns
+ */
 const deletarNoticias = function(){
     if (todasNoticias.length === 0) {
         alert("Você não possui noticias para deletar!");
-        return
+        return false
     }
+    //utilizando a caixa de confirmacao para perguntar se deseja deletar todas as noticias
     if(confirm("Deseja deletar todas as notícias?") === true){
+        //se sim limpa o array []
         todasNoticias = []
-        document.querySelector("#mostrarNoticias").innerHTML = ""
-        document.querySelector("#tituloNoticias").style = "display: none"
+        //limpando dados da tela
+        limparTela()
     }
 }
 
 /**
- * @todo verificar o editar click que esta com problema
- * @param {@} idNoticia 
+ * Função para o botão de editar a noticia
+ * @param {int} idNoticia 
  */
 const editar = function(idNoticia){
     document.querySelector("#noticia").value = todasNoticias[idNoticia]
+    //mostrando o botao de editar (SALVAR EDIÇÃO)
     document.querySelector("#btnEditarNoticia").style = "display: block"
+    //ocultado o botao de cadastrar (NOVA NOTICIA)
     document.querySelector("#btnCadastrarNoticia").style = "display: none"
-    btnEditarNoticia.addEventListener("click", () => { cadastrarNoticia(idNoticia) }, true)
-    
-    //alert(`Editando noticia ${idNoticia} e seu conteudo é ${todasNoticias[idNoticia]}`)
+    //adicionando o onclick ao botao
+    document.querySelector("#btnEditarNoticia").onclick = () => {
+        //quando clicar chamar a funcao cadastrarNoticia com o id da noticia
+        cadastrarNoticia(idNoticia)
+    };
 }
 
+/**
+ * Função para exclusão de 1 unica noticia
+ * @param {int} idNoticia 
+ */
 const excluir = function(idNoticia){
-    if(confirm("Deseja deletar a notícia?") === true){
+    //utilizando a caixa de confirmacao para perguntar se deseja deletar a noticia
+    if (confirm(`Deseja deletar a notícia ${idNoticia+1}?`) === true) {
+        //removendo o indice (idNoticia) do array de todas as noticias
         todasNoticias.splice(idNoticia,1)
-        qtdNoticias.innerHTML = todasNoticias.length
+        //listando novamente as noticias (atualizando)
         mostrarNoticias()
     }
 }
 
-//1 - ADICIONAR EVENTOS DE CLICK PARA CADA UM DOS TRES BOTOES DA TELA (btnCadastrarNoticia, btnMostrar, btnDeletar)
+/**
+ * Limpar elementos na tela e verifica se todas as noticias foram limpas.Se foi limpa a div mostrarNoticias e oculta os botoes
+ */
+const limparTela = function(){
+     limparFocarCampo()
+     if (todasNoticias.length === 0) {
+        //limpando a tela 
+        document.querySelector("#mostrarNoticias").innerHTML = ""
+        //ocultando os itens da tela
+        ocultarItens()
+     }
+}
+
+/**
+ * ocultando o titulo das noticias
+ */
+const ocultarItens = function () {
+    //ocultando o #tituloNoticias
+    document.querySelector("#tituloNoticias").style = "display: none"
+    //ocultando o #btnEditarNoticia
+    document.querySelector("#btnEditarNoticia").style = "display: none"
+    //ocultando o #btnDeletar
+    document.querySelector("#btnDeletar").style = "display: none"
+}
+
+/**
+ * limpando os dados cadastrados e focando no campo noticia
+ */
+const limparFocarCampo = function () {
+    //limpa o campo noticia
+    document.querySelector("#noticia").value = ""
+    //aponta o foco para o campo
+    document.querySelector("#noticia").focus()
+}
+
+//iniciando o código escondendo os itens da tela conforme a função abaixo
+ocultarItens()
+//Adicionando o evento de click para o cadastrar noticias
 btnCadastrarNoticia.addEventListener("click", () => { cadastrarNoticia() })
-//btnMostrar.addEventListener("click", mostrarNoticias)
+//Adicionando o evento de click para o botao deletar (esse botao é o que deleta todas as noticias)
 btnDeletar.addEventListener("click", deletarNoticias)

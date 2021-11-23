@@ -7,6 +7,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Aplicativo - Notícias - CRUD</title>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+    integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
   <script src="js/app_noticias.js" defer></script>
 </head>
 
@@ -17,6 +20,15 @@
         Aplicativo - Notícias - CRUD
       </h1>
       <hr>
+      <div class="control is-pulled-right">
+        <button class="button is-link is-danger" id="btnDeletar">
+          <span>Deletar TODAS Noticias!</span>
+          <span class="icon is-small">
+            <i class="fas fa-ban"></i>
+          </span>
+        </button>
+      </div>
+      <br>
       <div class="field">
         <label class="label">Notícia</label>
         <div class="control">
@@ -25,13 +37,20 @@
       </div>
       <div class="field is-grouped is-grouped-centered">
         <div class="control">
-          <button class="button is-link" id="btnCadastrarNoticia">Nova</button>
+          <button class="button is-link" id="btnCadastrarNoticia">
+            <span>Nova Notícia</span>
+            <span class="icon is-small">
+              <i class="fas fa-plus-circle"></i>
+            </span>
+          </button>
         </div>
         <div class="control">
-          <button class="button is-link" id="btnEditarNoticia">Editar</button>
-        </div>
-        <div class="control">
-          <button class="button is-link is-danger" id="btnDeletar">Deletar Todas Noticias!</button>
+          <button class="button is-link" id="btnEditarNoticia">
+             <span>Salvar Edição</span>
+             <span class="icon is-small">
+               <i class="fas fa-save"></i>
+             </span>
+           </button>
         </div>
       </div>
     </div>
@@ -43,9 +62,9 @@
       </h2>
       <hr>
       <div id="mostrarNoticias">
-
       </div>
     </div>
   </section>
 </body>
+
 </html>
