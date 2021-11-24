@@ -23,8 +23,8 @@ console.log(senior)
 //array de usuarios
 var usuarios = [
     {nome: "Irineu", login:"irineu1234@gmail.com", senha:"@12456"},
-    {nome: "Marta", login:"martafeliz@gmail.com", senha:"@1244356"},
-    {nome: "Vera", login:"vera_234@gmail.com", senha:"@43434"},
+    {nome: "Marta", login:"martafeliz@outlook.com", senha:"@1244356"},
+    {nome: "Vera", login:"vera_234@hotmail.com", senha:"@43434"},
     {nome: "Francisco", login:"chiquinho_1234@gmail.com", senha:"@43434"},
     {nome: "Antonio", login:"antonio_321654@gmail.com", senha:"@65656"}
 ]
