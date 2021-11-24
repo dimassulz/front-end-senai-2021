@@ -34,14 +34,14 @@ let filterSenha = usuarios.filter(function(usuario){
     return usuario.senha === "@12456"
 })
 
-console.log("filterSenha "+filterSenha[0])
+console.log("filterSenha @12456", filterSenha[0])
 
 //filtro se quiser filtrar o array usuario pelo nome "Vera"
 let filterNome = usuarios.filter(function(usuario){
     return usuario.nome === "Vera"
 })
 
-console.log("filterNome "+filterNome[0])
+console.log("filterNome Vera", filterNome[0])
 
 /**
  * Encontrar um nome no array usuarios
