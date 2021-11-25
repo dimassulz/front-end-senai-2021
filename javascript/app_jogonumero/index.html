@@ -7,15 +7,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>App - Descubra o número</title>
-
+    <!-- importa o css do bootstrap -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <!-- importa o js do bootstrap -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
     </script>
+    <!-- importa o css do fontawesome (biblioteca de icone) -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
         integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- importa o css do animate (biblioteca de animacao) -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
     <script src="js/animateCSS.js"></script>
     <script src="js/app.js" defer></script>
@@ -24,8 +27,8 @@
 <body>
     <main>
         <div class="px-4 py-5 my-5 text-center">
-            <img class="d-block mx-auto mb-4" src="img/img.jpg" alt="" width="240" height="240">
-            <h1 class="display-5 fw-bold">App Jogo - Descubra o Número</h1>
+            <img class="d-block mx-auto mb-4 animate__animated animate__jackInTheBox" src="img/img.jpg" alt="" width="240" height="240">
+            <h1 class="display-5 fw-bold animate__animated animate__flip">App Jogo - Descubra o Número</h1>
             <div class="col-md-10 mx-auto col-lg-5">
                 <form class="p-4 p-md-5 border rounded-3 bg-light">
                     <div class="form-floating mb-3">
@@ -33,18 +36,18 @@
                             placeholder="Digite um número entre 1 e 60">
                         <label for="floatingInput">Número</label>
                     </div>
-                    <button class="w-100 btn btn-lg btn-success" id="apostar" type="submit">
+                    <button class="w-100 btn btn-lg btn-success" id="apostar" type="button">
                         <i class="fas fa-wallet"></i> Apostar</button>
                     <hr class="my-4">
-                    <small class="text-muted"><i class="fas fa-heartbeat"></i> Erro(s):<span id="saidaErro">0</span>
+                    <small class="text-muted"><i class="fas fa-heartbeat"></i> Erro(s):<span id="saidaErro">-</span>
                     </small>
                     <hr class="my-4">
                     <small class="text-muted"><i class="fas fa-exclamation-circle"></i> Chance(s): <span
-                            id="saidaChance">6</span> </small>
+                            id="saidaChance">-</span> </small>
                     <hr class="my-4">
                     <small class="text-muted">
                         <small class="text-muted"><i class="fas fa-concierge-bell"></i> Dica: <span
-                                id="saidaDica">6</span></small>
+                                id="saidaDica">-</span></small>
                     </small>
                 </form>
             </div>
