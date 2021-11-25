@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 
 <head>
     <meta charset="UTF-8">
@@ -36,18 +36,20 @@
                             placeholder="Digite um número entre 1 e 60">
                         <label for="floatingInput">Número</label>
                     </div>
-                    <button class="w-100 btn btn-lg btn-success" id="apostar" type="button">
+                    <button class="w-100 btn btn-lg btn-success" id="apostar" type="submit">
                         <i class="fas fa-wallet"></i> Apostar</button>
+                        <button class="w-100 btn btn-lg btn-primary d-none" id="jogar" type="button">
+                            <i class="fas fa-redo-alt"></i> Jogar Novamente</button>
                     <hr class="my-4">
-                    <small class="text-muted"><i class="fas fa-heartbeat"></i> Erro(s):<span id="saidaErro">-</span>
+                    <small class="text-muted"><i class="fas fa-heartbeat"></i> Erro(s): <span id="saidaErro"><h4 class="alert alert-danger">0</h4></span>
                     </small>
                     <hr class="my-4">
                     <small class="text-muted"><i class="fas fa-exclamation-circle"></i> Chance(s): <span
-                            id="saidaChance">-</span> </small>
+                            id="saidaChance"><h4 class="alert alert-primary">6</h4></span> </small>
                     <hr class="my-4">
                     <small class="text-muted">
                         <small class="text-muted"><i class="fas fa-concierge-bell"></i> Dica: <span
-                                id="saidaDica">-</span></small>
+                                id="saidaDica"> <h4 class="alert alert-success">SEM DICAS</h4></span></small>
                     </small>
                 </form>
             </div>
