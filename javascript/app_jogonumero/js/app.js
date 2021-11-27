@@ -95,7 +95,13 @@ const verificarNumeroErroRepetido = (n) => {
 //4.1 - Verificar se o numero é menor ou igual a zero ou numero > que 60, caso for mostrar "Informe um número válido"
 const verificaNumeroInvalido = (n) => {
     if(n <= 0 || n > 60 || isNaN(n)){
-        alert("Informe um número válido!")
+    
+        Swal.fire({
+            title: 'Erro!',
+            text: 'Informe um número válido!',
+            icon: 'error',
+            confirmButtonText: 'Ok'
+          })
         limparCampo() //4.7
         return false
     }

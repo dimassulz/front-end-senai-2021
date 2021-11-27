@@ -21,6 +21,7 @@
     <!-- importa o css do animate (biblioteca de animacao) -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
     <script src="js/animateCSS.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.2.1/dist/sweetalert2.all.min.js"></script>
     <script src="js/app.js" defer></script>
 </head>
 
@@ -31,7 +32,7 @@
             <h1 class="display-5 fw-bold animate__animated animate__flip">App Jogo - Descubra o Número</h1>
             <div class="col-md-10 mx-auto col-lg-5">
                 <form class="p-4 p-md-5 border rounded-3 bg-light">
-                    <div class="form-floating mb-3">
+                    <div class="form-floating mb-3" id="boxNumero">
                         <input type="number" class="form-control" id="numero" required
                             placeholder="Digite um número entre 1 e 60">
                         <label for="floatingInput">Digite um número entre 1 e 60</label>
@@ -41,10 +42,10 @@
                         <button class="w-100 btn btn-lg btn-primary d-none" id="jogar" type="button">
                             <i class="fas fa-redo-alt"></i> Jogar Novamente</button>
                     <hr class="my-4">
-                    <small class="text-muted"><i class="fas fa-heartbeat"></i> Erro(s): <span id="saidaErro"><h4 class="alert alert-danger">0</h4></span>
+                    <small class="text-muted" id="boxErro"><i class="fas fa-heartbeat"></i> Erro(s): <span id="saidaErro"><h4 class="alert alert-danger">0</h4></span>
                     </small>
                     <hr class="my-4">
-                    <small class="text-muted"><i class="fas fa-exclamation-circle"></i> Chance(s): <span
+                    <small class="text-muted" id="boxChance"><i class="fas fa-exclamation-circle"></i> Chance(s): <span
                             id="saidaChance"><h4 class="alert alert-primary">6</h4></span> </small>
                     <hr class="my-4">
                     <small class="text-muted">
