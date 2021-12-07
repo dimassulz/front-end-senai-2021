@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Exercício Boleto Data</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.2.1/dist/sweetalert2.all.min.js"></script>
+  <!-- importa o css do fontawesome (biblioteca de icone) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+    integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <script src="https://momentjs.com/downloads/moment.js"></script>
+  <script src="https://momentjs.com/downloads/moment-with-locales.js"></script>
+  <script src="https://unpkg.com/vanilla-masker@1.1.1/build/vanilla-masker.min.js"></script>
+  <script src="js/ex_boleto_data.js" defer></script>
+</head>
+
+<body>
+  <section class="section">
+    <h1 class="title">Exercício Boleto Data</h1>
+    <div class="container">
+      <div class="field is-horizontal">
+        <div class="field-label is-normal">
+          <label class="label">Data de vencimento do boleto</label>
+        </div>
+        <div class="field-body">
+          <div class="field">
+            <p class="control is-expanded has-icons-left">
+              <input class="input" type="date" placeholder="Data do boleto" name="dtBoleto" id="dtBoleto" >
+              <span class="icon is-small is-left">
+                <i class="fas fa-calendar"></i>
+              </span>
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="field is-horizontal">
+        <div class="field-label is-normal">
+          <label class="label">Valor do Boleto</label>
+        </div>
+        <div class="field-body">
+          <div class="field">
+            <p class="control is-expanded has-icons-left has-icons-right">
+              <input class="input" type="text" name="vlBoleto" id="vlBoleto" placeholder="Valor do Boleto" value="">
+              <span class="icon is-small is-left">
+                <i class="fas fa-money-check-alt"></i>
+              </span>
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="field has-text-centered">
+        <button class="button is-primary" id="calcular">Calcular</button> &nbsp;&nbsp;<button class="button is-danger" id="novaConta">Nova Conta</button>
+      </div>
+      <h2 class="subtitle multa">Valor da Multa  - <span></span></h2>
+      <h2 class="subtitle juro">Valor do Juro - <span></span></h2>
+      <h2 class="subtitle boleto">Total do boleto - <span></span></h2>
+    </div>
+  </section>
+</body>
+
+</html>
