@@ -2,7 +2,7 @@
 	"method": "GET",
 	"headers": {
 		"x-rapidapi-host": "instagram-stories1.p.rapidapi.com",
-		"x-rapidapi-key": "511b370a49msh0901d954a2fb128p15502cjsnb6a9efdcaec4"
+		"x-rapidapi-key": "suachave"
 	}
 })
 .then(response => response.json())
