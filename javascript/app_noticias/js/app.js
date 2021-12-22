@@ -1,5 +1,5 @@
 //lista com todas as noticias
-let todasNoticias = []
+let ultimasNoticias = []
 
 //ocultando o titulo das noticias 
 document.querySelector("#tituloNoticias").style = "display: none"
@@ -18,6 +18,9 @@ const cadastrarNoticia = function(){
     }
     ultimasNoticias.push(noticia)   
     qtdNoticias.innerHTML = ultimasNoticias.length
+    localStorage.setItem("noticias", ultimasNoticias.join("|"))
+    
+    mostrarNoticias()
     document.querySelector("#noticia").value = ""
     document.querySelector("#noticia").focus()
     document.querySelector("#tituloNoticias").style = "display: block"
@@ -32,6 +35,10 @@ const cadastrarNoticia = function(){
 const mostrarNoticias = function(){
     let mostrar = document.querySelector("#mostrarNoticias")
     let htmlTela = ""
+
+    if(localStorage.getItem("noticias")){
+        ultimasNoticias = localStorage.getItem("noticias").split("|")
+    }
 
     if (ultimasNoticias.length === 0) {
         alert("Você não possui noticias cadastradas");
@@ -56,10 +63,14 @@ const mostrarNoticias = function(){
 //4.2 - Limpar a div id="mostrarNoticias"
 const deletarNoticias = function(){
     ultimasNoticias = []
-    //qtdNoticias.innerHTML = ""
-    document.querySelector("#mostrarNoticias").innerHTML = ""
-    document.querySelector("#tituloNoticias").style = "display: none"
+    if (localStorage.getItem("noticias")) {
+        localStorage.removeItem("noticias")
+         //qtdNoticias.innerHTML = ""
+        document.querySelector("#mostrarNoticias").innerHTML = ""
+        document.querySelector("#tituloNoticias").style = "display: none"
+    }
 }
+   
 
 //1 - ADICIONAR EVENTOS DE CLICK PARA CADA UM DOS TRES BOTOES DA TELA (btnCadastrarNoticia, btnMostrar, btnDeletar)
 btnCadastrarNoticia.addEventListener("click", cadastrarNoticia)
